@@ -11,4 +11,12 @@
 
 @implementation DepartmentViewController
 
+-(id)init {
+	if (![super initWithNibName:@"DepartmentView" bundle:nil]) {
+		return nil;
+	}
+	[self setTitle:@"Departments"];
+	return self;
+}
+
 @end
