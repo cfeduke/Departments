@@ -9,6 +9,11 @@
 #import <Cocoa/Cocoa.h>
 
 @interface MyDocument : NSPersistentDocument {
+	IBOutlet NSBox *box;
+	IBOutlet NSPopUpButton *popUp;
+	NSMutableArray *viewControllers;
 }
+
+-(IBAction)changeViewController:(id)sender;
 
 @end
