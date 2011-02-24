@@ -9,6 +9,7 @@
 #import "MyDocument.h"
 #import "DepartmentViewController.h"
 #import "EmployeeViewController.h"
+@class ManagingViewController;
 
 @implementation MyDocument
 
@@ -55,7 +56,26 @@
 - (void)windowControllerDidLoadNib:(NSWindowController *)windowController 
 {
     [super windowControllerDidLoadNib:windowController];
-    // user interface preparation code
+    NSMenu *menu = [popUp menu];
+	int i, itemCount;
+	itemCount = [viewControllers count];
+	
+	for (i = 0; i < itemCount; i++) {
+		NSViewController *vc = [viewControllers objectAtIndex:i];
+		NSMenuItem *mi = [[NSMenuItem alloc] initWithTitle:[vc title] action:@selector(changeViewController:) keyEquivalent:@""];
+		[mi setTag:i];
+		[menu addItem:mi];
+		[mi release];
+	}
+	
+	[self displayViewController:[viewControllers objectAtIndex:0]];
+	[popUp selectItemAtIndex:0];
+}
+
+-(IBAction)changeViewController:(id)sender {
+	int i = [sender tag];
+	ManagingViewController *vc = [viewControllers objectAtIndex:i];
+	[self displayViewController:vc];
 }
 
 @end
