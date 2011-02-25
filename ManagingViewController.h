@@ -10,7 +10,7 @@
 
 
 @interface ManagingViewController : NSViewController {
-	NSManagedObjectContext *managedObjectContext;
+	IBOutlet NSManagedObjectContext *managedObjectContext;
 }
 
 @property (retain) NSManagedObjectContext *managedObjectContext;

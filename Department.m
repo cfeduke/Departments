@@ -35,7 +35,7 @@
 	if (manager == value) {
 		[self setManager:nil];
 	}
-	NSSet *s = [NSSet setWithObjects:value];
+	NSSet *s = [NSSet setWithObject:value];
 	[self willChangeValueForKey:@"employees"
 				withSetMutation:NSKeyValueMinusSetMutation
 				   usingObjects:s];
